@@ -329,7 +329,7 @@ public class ReactWebViewManager extends SimpleViewManager<WebView> {
       if (getSettings().getJavaScriptEnabled() &&
           injectedJS != null &&
           !TextUtils.isEmpty(injectedJS)) {
-        loadUrl("javascript:(function() {\n" + injectedJS + ";\n})();");
+        evaluateJavascript(injectedJS);
       }
     }
 
