@@ -299,7 +299,12 @@ public class ReactWebViewManager extends SimpleViewManager<WebView> {
       if (getSettings().getJavaScriptEnabled() &&
           injectedJS != null &&
           !TextUtils.isEmpty(injectedJS)) {
-        evaluateJavascript("alert('Test Foo Bar')");
+        evaluateJavascript("alert('Test Foo Bar')", new ValueCallback<String>() {
+          @Override
+          public void onReceiveValue(String value) {
+            // Do nothing
+          }
+        });
       }
     }
 
