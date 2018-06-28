@@ -296,10 +296,11 @@ public class ReactWebViewManager extends SimpleViewManager<WebView> {
     }
 
     public void callInjectedJavaScript() {
-      evaluateJavascript("(function() { alert(1); return undefined; })();", new ValueCallback<String>() {
+      FLog.w(ReactConstants.TAG, "Evaluating JavaScript");
+      evaluateJavascript("(function() { alert(2); return undefined; })();", new ValueCallback<String>() {
         @Override
         public void onReceiveValue(String value) {
-          // Do nothing
+          FLog.w(ReactConstants.TAG, "JavaScript was evaluated");
         }
       });
     }
