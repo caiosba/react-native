@@ -296,16 +296,12 @@ public class ReactWebViewManager extends SimpleViewManager<WebView> {
     }
 
     public void callInjectedJavaScript() {
-      if (getSettings().getJavaScriptEnabled() &&
-          injectedJS != null &&
-          !TextUtils.isEmpty(injectedJS)) {
-        evaluateJavascript("(function() { " + injectedJS + "; return undefined; })();", new ValueCallback<String>() {
-          @Override
-          public void onReceiveValue(String value) {
-            // Do nothing
-          }
-        });
-      }
+      evaluateJavascript("(function() { alert(1); return undefined; })();", new ValueCallback<String>() {
+        @Override
+        public void onReceiveValue(String value) {
+          // Do nothing
+        }
+      });
     }
 
     public void linkBridge() {
